@@ -29,6 +29,18 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    /**rx生命周期处理 */
     compile 'com.trello:rxlifecycle-components:1.0'
+    /** 工具类 */
+    compile('com.blankj:utilcode:1.23.4'){
+        exclude group: 'com.google.code.gson'
+    }
+    /** 动态权限申请 */
+    compile 'com.yanzhenjie:permission:1.1.2'
+    /** Material样式Dialog */
+    compile 'com.afollestad.material-dialogs:core:0.9.6.0'
+    /** Android沉浸式效果 */
+    compile 'com.gyf.barlibrary:barlibrary:2.3.0'
+
 
 }
