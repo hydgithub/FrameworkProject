@@ -15,6 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.blankj.utilcode.util.KeyboardUtils;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.hyd.frameworkproject.utils.immersion.ImmersionBarUtil;
 import com.hyd.frameworkproject.utils.immersion.base.OnImmersionListener;
 import com.hyd.frameworkproject.utils.loadingdialog.DefaultRequestLoading;
@@ -51,6 +52,7 @@ public abstract class BaseActivity extends RxAppCompatActivity  implements OnImm
     private IRequestLoad mRequestLoading;
     private IntentFilter mIntentFilter;
     private BroadcastReceiver mOtherBroadcastReceiver;
+    private boolean mHideLoadMoreEnd = true;
 
 
     @Override
@@ -359,9 +361,31 @@ public abstract class BaseActivity extends RxAppCompatActivity  implements OnImm
 
     }
 
-
-
-
+    /**
+     * 判断分页是否完成,并且当不满一页数据的时候,不显示LoadMore布局
+     *
+     * @param adapter
+     * @param total
+     * @param onePageSize
+     */
+    protected void checkLoadMore(boolean isRefresh, BaseQuickAdapter adapter, int total, int onePageSize) {
+        if (adapter == null) {
+            throw new IllegalArgumentException("adapter can no be null");
+        }
+        if (isRefresh) {
+            if (total <= onePageSize) {
+                adapter.loadMoreEnd(mHideLoadMoreEnd);
+            }
+        } else {
+            if (adapter.getData().size() >= total) {
+                //数据全部加载完毕
+                adapter.loadMoreEnd();
+            } else {
+                //成功获取更多数据
+                adapter.loadMoreComplete();
+            }
+        }
+    }
 
 
     @Override
