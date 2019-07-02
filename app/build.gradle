@@ -9,6 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
     }
     buildTypes {
         release {
@@ -21,6 +22,8 @@ android {
     configurations.all {
         resolutionStrategy.force 'com.android.support:support-annotations:26.1.0'
     }
+
+
 }
 
 dependencies {
@@ -46,6 +49,7 @@ dependencies {
     implementation 'com.gyf.barlibrary:barlibrary:2.3.0'
     /** RecyclerView Adapter */
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
+    compile 'com.jakewharton:butterknife:7.0.1'
 
 
 }

@@ -15,6 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.blankj.utilcode.util.KeyboardUtils;
+import com.blankj.utilcode.util.LogUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.hyd.frameworkproject.utils.immersion.ImmersionBarUtil;
 import com.hyd.frameworkproject.utils.immersion.base.OnImmersionListener;
@@ -36,10 +37,9 @@ import java.util.ArrayList;
  * 3.输入法弹出是否改变布局,默认改变
  * 4.动态权限
  * 5.沉浸式
- * 6.智能刷新数据
- * 7.网络请求Loading
- * 8.吐司
- * 9.BaseQuickAdapter分页判断
+ * 6.网络请求Loading
+ * 7.吐司
+ * 8.BaseQuickAdapter分页判断
  * Created by huangyd on 2019/7/1.
  */
 
@@ -314,6 +314,15 @@ public abstract class BaseActivity extends RxAppCompatActivity  implements OnImm
      */
     protected void showToastLong(@NonNull String msg) {
         ToastUtil.showToastLong(this, msg);
+    }
+
+    /**
+     * 网络请求出错
+     * @param error
+     */
+    @Override
+    public void onRequestError(String error) {
+        LogUtils.eTag("Request", "error = " + error);
     }
 
     /**

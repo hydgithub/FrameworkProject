@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/u1city_frame_toolbar_bg_color"
+    android:orientation="vertical"
+    app:navigationIcon="@drawable/ic_back">
+
+   <ImageView
+       android:id="@+id/toolbar_iv_left"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:scaleType="centerCrop"
+       android:layout_gravity="left"
+       android:visibility="gone"
+       android:src="@drawable/ic_back"
+       android:layout_marginLeft="16dp"
+       />
+      <RelativeLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          >
+          <TextView
+              android:id="@+id/toolbar_title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerVertical="true"
+              android:singleLine="true"
+              android:text=""
+              android:textColor="@color/u1city_frame_toolbar_text_color"
+              android:textSize="20sp"
+              tools:text="又一城"
+              tools:visibility="visible"/>
+          <ImageView
+              android:id="@+id/toolbar_title_icon"
+              android:layout_width="18dp"
+              android:layout_height="18dp"
+              android:layout_centerVertical="true"
+              android:layout_toRightOf="@id/toolbar_title"
+              android:layout_marginLeft="4dp"
+              android:visibility="gone"/>
+      </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/toolbar_right_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|center_vertical"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingRight="16dp">
+
+        <ImageView
+            android:id="@+id/toolbar_right_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/toolbar_right_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/u1city_frame_toolbar_right_text_color"
+            android:textSize="16sp"
+            android:visibility="gone"
+            tools:text="右边文字"
+            tools:visibility="visible"/>
+    </LinearLayout>
+</android.support.v7.widget.Toolbar>
